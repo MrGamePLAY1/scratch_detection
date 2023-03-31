@@ -1,10 +1,10 @@
 from functions import *
 
-
-
 img = cv.imread('images/sample/sample1.webp')
 img2 = cv.imread('images/sample/sample2.webp')
 img3 = cv.imread('images/sample/sample3.webp')
+
+print(tf.__version__)
 
 # Image gray
 grey_image = img_grey(img)
@@ -16,7 +16,6 @@ blurred_image = blur(grey_image)
 
 # Canny image
 canny_image = canny(blurred_image)
-
 
 # thresholding image
 # thresholding_image = thresholding(canny_image)
