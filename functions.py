@@ -38,9 +38,17 @@ def blur(image):
 # ------------------ Canny ------------------
 
 def canny(image_blur):
-    image_canny = cv.Canny(image_blur, 150, 200)
+    image_canny = cv.Canny(image_blur, 90, 120)
+    image_canny2 = cv.Canny(image_blur, 0, 299)
+    # image_canny3 = cv.Canny(image_blur, 35, 210)
+    # image_canny4 = cv.Canny(image_blur, 55, 210)
+    # image_canny5 = cv.Canny(image_blur, 45, 210)
 
-    cv.imshow("Image Canny", image_canny)
+    # cv.imshow("Image Canny 90 x 120", image_canny)
+    cv.imshow("Image Canny 0 x 299", image_canny2)
+    # cv.imshow("Image Canny 35 x 210", image_canny3)
+    # cv.imshow("Image Canny 55 x 210", image_canny4)
+    # cv.imshow("Image Canny 45 x 210", image_canny5)
     cv.waitKey(0)
     cv.destroyAllWindows()
     return image_canny
@@ -49,9 +57,12 @@ def canny(image_blur):
 # -------------------- Sobel ----------------------
 
 def sobel_detection(img):
-    sobelx = cv.Sobel(img, cv.CV_64F, 1, 0, ksize=5)
-    sobely = cv.Sobel(img, cv.CV_64F, 0, 1, ksize=5)
-    cv.imshow("Image Sobel", sobelx)
+    sobelx = cv.Sobel(img, cv.CV_64F, 1, 0, ksize=3)
+    sobely = cv.Sobel(img, cv.CV_64F, 0, 1, ksize=3)
+
+    combined_sobel = cv.bitwise_or(sobelx, sobely)
+
+    cv.imshow("Image Sobel", combined_sobel)
     cv.waitKey(0)
     cv.destroyAllWindows()
 
@@ -69,23 +80,18 @@ def laplacian_detection(img):
 
 # ------------------ Thresholding ------------------
 def thresholding(img):
-    thresh = cv.adaptiveThreshold(img, 255, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 11, 2)
+    thresh = cv.adaptiveThreshold(img, 256, cv.ADAPTIVE_THRESH_GAUSSIAN_C, cv.THRESH_BINARY, 7, 2)
 
     cv.imshow("Image Thresholding", thresh)
     cv.waitKey(0)
     cv.destroyAllWindows()
     return thresh
+
+
 # ------------------ Region of Interest ------------------
-# def region_of_interest(img):
-#     height = img.shape[0]
-#     polygons = np.array([
-#         [(200, height), (1100, height), (550, 250)]
-#     ])
-#     mask = np.zeros_like(img)
-#     cv.fillPoly(mask, polygons, 255)
-#
-#     masked_image = cv.bitwise_and(img, mask)
-#     cv.imshow("Image ROI", masked_image)
-#     cv.waitKey(0)
-#     cv.destroyAllWindows()
-#     return masked_image
+
+# ------------------- length of a line -------------------
+def length_of_line(x1, y1, x2, y2):
+    length = np.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    print('this should be updated')
+    return length
