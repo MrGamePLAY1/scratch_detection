@@ -4,7 +4,7 @@ img = cv.imread('images/sample/sample1.webp')
 img2 = cv.imread('images/sample/sample2.webp')
 img3 = cv.imread('images/sample/sample3.webp')
 
-print(tf.__version__)
+# print(tf.__version__)
 
 # Image gray
 grey_image = img_grey(img)
