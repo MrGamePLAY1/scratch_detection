@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import tensorflow as tf
 
+
 # ------------------ Test Print ------------------
 def test_print():
     print("Test Print")
@@ -100,3 +101,18 @@ def length_of_line(x1, y1, x2, y2):
     length = np.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
     print('this should be updated')
     return length
+
+
+# --------------------- Tensor Flow --------------------------
+def tensor():
+    # Class names
+    class_names = ['Heavy Scratch', 'Light Scratch', 'No Scratch']
+
+    # Train image
+    train_image = cv.imread('images/audi/1.jpg')
+    print(type(train_image))
+    print(train_image.shape)
+    print(type(train_image.shape))
+
+
+tensor()
