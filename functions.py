@@ -7,6 +7,7 @@ import keras
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 
+
 # ------------------ Test Print ------------------
 def test_print():
     print("Test Print")
@@ -169,3 +170,16 @@ def keras_model_train():
     model.compile(optimizer='adam',
                   loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
                   metrics=['accuracy'])
+# --------------------- Tensor Flow --------------------------
+def tensor():
+    # Class names
+    class_names = ['Heavy Scratch', 'Light Scratch', 'No Scratch']
+
+    # Train image
+    train_image = cv.imread('images/audi/1.jpg')
+    print(type(train_image))
+    print(train_image.shape)
+    print(type(train_image.shape))
+
+
+tensor()
