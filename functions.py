@@ -7,7 +7,6 @@ import keras
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 
-
 # ------------------ Test Print ------------------
 def test_print():
     print("Test Print")
@@ -170,6 +169,8 @@ def keras_model_train():
     model.compile(optimizer='adam',
                   loss=tf.keras.losses.BinaryCrossentropy(from_logits=True),
                   metrics=['accuracy'])
+
+
 # --------------------- Tensor Flow --------------------------
 def tensor():
     # Class names
@@ -182,4 +183,8 @@ def tensor():
     print(type(train_image.shape))
 
 
-tensor()
+# --------------------- Quit Program --------------------------
+def escape_program():
+    if 0xFF == ord('q'):
+        cv.destroyAllWindows()
+        exit()
