@@ -6,5 +6,5 @@
 # 4. Segment the images into different sections
 # 5. Separate the scratches in a folder
 # 6. Separate the non-scratched photos in a folder
-# 7. Trian the model using the images 
+# 7. Train the model using the images comparing them to non-scratch 
 
